@@ -1,0 +1,138 @@
+<section>
+  <!--article>
+  <h3>
+    Interpolation / Interpolação
+    <p>String renderizada com interpolação de variável
+      <a [href]="url"> </a>
+    </p>
+    <p>Resultado = {{ 1+1 }}</p>
+  </h3>
+<p>
+  Valor = {{ getValor() }}
+</p>
+
+<p>Está curtindo {{ curtiu && getCurtiu() }}</p>
+
+</article>
+
+<article>
+
+  <img src="{{ urlImagem }}">
+  <img [src]="urlImagem1">
+  <img [src]="urlImagem">
+
+  <img bind-src="urlImagem1">
+
+</article-->
+
+  <!--article>
+    <p> Class and Style Binding</p>
+    <div style="text-align: center">Selecione uma Classe
+      <table>
+        <tbody>
+          <tr>
+            <td>Teste</td>
+            <td>Teste</td>
+          </tr>
+          <tr>
+            <td colspan=2>Teste</td>
+          </tr>
+        </tbody>
+      </table>
+      <select #classe (change)="0">
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-secondary">Secundario</option>
+        <option value="alert-info">info</option>
+        <option value="alert-warning">Warning</option>
+        <option value="alert-danger">Danger</option>
+        <option value="alert-light">Light</option>
+        <option value="alert-dark">Dark</option>
+      </select>
+    </div>
+    <br>
+    <div role="alert" [class.alert-success]="classe.value == 'alert-success'">
+      Alerta basico <a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-success]="classe.value == 'alert-success'">
+      Alerta Secundario <a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-secondary]="classe.value == 'alert-secondary'">
+      Alerta de Sucesso <a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-danger]="classe.value == 'alert-danger'">
+      Alerta de Perigo <a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-warning]="classe.value == 'alert-warning'">
+      Alerta de Warning <a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-info]="classe.value == 'alert-info'">
+      Alerta de Informacao<a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-light]="classe.value == 'alert-light'">
+      Alerta Claro <a href="#" class="alert-link">link</a>.
+    </div>
+    <div role="alert" [class.alert-dark]="classe.value == 'alert-dark'">
+      Alerta Escuro <a href="#" class="alert-link">link</a>.
+    </div>
+
+    <br>
+    <div class="alert {{ classe.value }}" role="alert">
+      Texto alterna conforme a escolha.
+    </div>
+
+    <br>
+    <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+      Perigo Selecionado.
+    </div>
+  </article-->
+
+  <article>
+    <h3>
+      <div>
+        <button (click)="botaoClick()" class="btn btn-primary">
+          Me clique
+        </button>
+      </div>
+      <div>
+        <input
+          #campoInput
+          type="text"
+          (keyup)="onKeyUp($event)"
+          (keyup.enter)="salvarValor(campoInput.value)"
+          (blur)="salvarValor($event.target.value)"
+        />
+        Valor do Campo
+        <p>{{ valorAtual }}</p>
+        Valor Salvo
+        <p>{{ valorSalvo }}</p>
+
+        <span
+          (mouseover)="onMouseOver($event)"
+          (mouseout)="onMouseOut($event)"
+          [class.highlight]="isMouseOver"
+        >
+          Mouse - passe sobre mim
+        </span>
+      </div>
+    </h3>
+  </article>
+
+  <section class="input-output-properties">
+    <article>
+      <h3>Input/Outup properties</h3>
+      <app-curso [nomeCurso]="nomeCurso" [dataCurso]="dataCurso"></app-curso>
+    </article>
+  </section>
+
+  <section>
+    <div>
+      <h3>Output properties</h3>
+      3 -
+      <input type="text" (blur)="salvarValor($event.target.value)" />
+      <app-contador
+        [(valor)]="valorInicial"
+        (mudouValor)="onMudouValor($event)"
+      ></app-contador>
+    </div>
+  </section>
+</section>

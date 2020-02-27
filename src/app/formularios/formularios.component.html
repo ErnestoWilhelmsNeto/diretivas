@@ -1,0 +1,23 @@
+<p>Teste de formularios</p>
+<article>
+	<section class="two-way-binding">
+		<h3>
+			<div>
+				<input type="text" [value]="nome" (input)="nome = $event.target.value">
+				{{ nome }}
+			</div>
+			<div>
+				<input type="text" [(ngModel)]="nome">
+				{{ nome }}
+			</div>
+		</h3>
+    <button (click)="onClick()" (mouseover)="onMouseOver()">Limpa</button>
+    <button (click)="onClick()">botao 2</button>
+
+		<div>
+			<input type="text" [(ngModel)]="pessoa.nome">
+			<input type="text" [(ngModel)]="pessoa.idade">
+			Meu nome {{ pessoa.nome }} e tenho {{ pessoa.idade }}
+		</div>
+	</section>
+</article>

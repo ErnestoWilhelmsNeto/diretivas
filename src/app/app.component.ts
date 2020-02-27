@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'diretivas';
+  // tslint:disable-next-line: no-inferrable-types
+  title = 'data-binding';
+
+  @Input() valorInicial: number = 5;
+
+  deletarCiclo: boolean = false;
+
+  mudarValor() {
+    this.valorInicial++;
+  }
+
+  destruirCiclo() {
+    this.deletarCiclo = true;
+  }
 }
